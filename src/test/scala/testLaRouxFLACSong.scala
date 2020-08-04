@@ -1,54 +1,66 @@
-import org.scalatest._
+import org.scalatest.BeforeAndAfter
+import org.scalatest.funsuite.AnyFunSuite
 
-class testLaRouxFLACSong extends FunSuite with BeforeAndAfter  {
+class testLaRouxFLACSong extends AnyFunSuite with BeforeAndAfter {
 
-  var track: Song = _
+  var songUnderTest: Song = _
 
   before {
-    track = new Song("C:\\TEMP\\two.flac", new FfmpegTagReader())
+    songUnderTest = new Song("C:\\TEMP\\two.flac", new FfmpegMetadataReader())
   }
 
   test(testName = "track has correct path") {
-    assert(track.getPath == "C:\\TEMP\\two.flac")
+    assert(songUnderTest.getPath == "C:\\TEMP\\two.flac")
   }
 
   test(testName = "song has correct album") {
-    assert(track.getAlbum == "Supervision")
+    assert(songUnderTest.getAlbum == "Supervision")
   }
 
   test(testName = "song has correct year") {
-    assert(track.getYear == "2020")
+    assert(songUnderTest.getYear == "2020")
   }
 
   test(testName = "song has correct artist") {
-    assert(track.getArtist == "La Roux")
+    assert(songUnderTest.getArtist == "La Roux")
   }
 
   test(testName = "song has correct track") {
-    assert(track.getTrack == "8")
+    assert(songUnderTest.getTrack == "8")
   }
 
   test(testName = "song has correct genre") {
-    assert(track.getGenre == "pop")
+    assert(songUnderTest.getGenre == "pop")
   }
 
   test(testName = "song has correct comment") {
-    assert(track.getComment == "")
+    assert(songUnderTest.getComment == "")
   }
 
   test(testName = "song has correct album artist") {
-    assert(track.getAlbumArtist == "La Roux")
+    assert(songUnderTest.getAlbumArtist == "La Roux")
   }
 
   test(testName = "song has correct composer") {
-    assert(track.getComposer == "")
+    assert(songUnderTest.getComposer == "")
   }
 
   test(testName = "song has correct disc number") {
-    assert(track.getDiscNumber == "1")
+    assert(songUnderTest.getDiscNumber == "1")
   }
+
   test(testName = "song has correct image") {
-    assert(track.getImage() == "IMAGE")
+    assert(songUnderTest.getImage == "IMAGE")
+  }
+
+  test(testName = "song has correct image size") {
+    assert(songUnderTest.getImageSize == "3")
+  }
+  test(testName = "song has correct image width") {
+    assert(songUnderTest.getImageWidth == "1000")
+  }
+  test(testName = "song has correct image height") {
+    assert(songUnderTest.getImageHeight == "1000")
   }
 
 }

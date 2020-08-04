@@ -1,10 +1,8 @@
-  import org.scalatest._
+import org.scalatest.BeforeAndAfter
+import org.scalatest.funsuite.AnyFunSuite
 
-
-
-
-  class testSongWithDummyTagReader extends FunSuite with BeforeAndAfter  {
-    class DummyTagReader extends TagReader {
+  class testSongWithDummyMetadataReader extends AnyFunSuite with BeforeAndAfter {
+    class DummyMetadataReader extends MetadataReader {
       def openFileForTagReading(filename: String): Boolean = {true}
       def getUidFromFile: String = "UID"
       def getAudioHashFromFile: String = "AUDIOHASH"
@@ -20,12 +18,18 @@
       def getDiscNumberFromFile: String = "TheDiscNumber"
       def getImageFromFile: String = "TheIMAGE"
       def getPathFromFile: String = "ThePath"
+      def getImageWidthFromFile: String = ""
+      def getImageHeightFromFile: String = ""
+      def getImageSizeFromFile: String = ""
+      def getLengthSecondsFromFile: String = ""
+      def getBitDepthFromFile: String = ""
+      def getSampleRateFromFile: String = "Y"
     }
 
     var track: Song = _
 
     before {
-      track = new Song("ThePath", new DummyTagReader())
+      track = new Song("ThePath", new DummyMetadataReader())
     }
 
     test(testName = "track has correct path")(assert(track.getPath == "ThePath"))

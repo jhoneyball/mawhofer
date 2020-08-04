@@ -1,4 +1,4 @@
-trait TagReader {
+trait MetadataReader {
 
   def openFileForTagReading(filename: String): Boolean
   def getPathFromFile: String
@@ -15,6 +15,11 @@ trait TagReader {
   def getComposerFromFile: String
   def getDiscNumberFromFile: String
   def getImageFromFile: String
-
+  def getImageWidthFromFile: String
+  def getImageHeightFromFile: String
+  def getImageSizeFromFile: String
+  def getLengthSecondsFromFile: String
+  def getBitDepthFromFile: String
+  def getSampleRateFromFile: String
 
 }
