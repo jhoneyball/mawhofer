@@ -31,43 +31,24 @@ class FfmpegMetadataReader extends MetadataReader {
 
 
   def getUidFromFile: String = _uid
-
   def getAudioHashFromFile: String = _audioHash
-
   def getTitleFromFile: String = _title
-
   def getArtistFromFile: String = _artist
-
   def getAlbumFromFile: String = _album
-
   def getYearFromFile: String = _year
-
   def getTrack: String = _track
-
   def getGenreFromFile: String = _genre
-
   def getCommentFromFile: String = _comment
-
   def getAlbumArtistFromFile: String = _albumArtist
-
   def getComposerFromFile: String = _composer
-
   def getDiscNumberFromFile: String = _discNumber
-
   def getImageFromFile: String = _image
-
   def getPathFromFile: String = _filenamePath
-
   def getImageWidthFromFile: String = _imageWidth
-
   def getImageHeightFromFile: String = _imageHeight
-
   def getImageSizeFromFile: String = _imageSize
-
   def getLengthSecondsFromFile: String = _lengthSeconds
-
   def getBitDepthFromFile: String = _bitDepth
-
   def getSampleRateFromFile: String = _sampleRate
 
 
